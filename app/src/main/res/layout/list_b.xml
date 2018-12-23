@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/scrollable">
+<LinearLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/list_b">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="32dp"
+            android:paddingRight="32dp"
+            android:paddingTop="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Address\n(Host/ Network)"
+                android:layout_weight="1"
+                android:id="@+id/li_address"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="10"
+                android:text="              Netmask/ bits"
+                android:gravity="center"
+                android:id="@+id/li_netmask"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/list_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="32dp"
+            android:paddingRight="32dp">
+
+            <EditText
+                android:id="@+id/li_addressa"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/hintbits"
+                android:layout_weight="1"
+                android:digits="0123456789."/>
+
+            <EditText
+                android:id="@+id/li_subbits"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/hintmask"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:digits="0123456789."/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingRight="16dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/hint_A"
+                android:text="@string/hinta"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/hint_B"
+                android:text="@string/hintb"/>
+
+            <Button
+                android:id="@+id/buttonPanel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Go" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_margin="4dp"
+                    android:paddingBottom="4dp">
+
+                    <TextView
+                        android:id="@+id/vn_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Address: "
+                        android:paddingBottom="8dp"/>
+
+                    <TextView
+                        android:id="@+id/vn_network"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Network: "
+                        android:paddingBottom="8dp"/>
+
+                    <TextView
+                        android:id="@+id/vn_hostmin"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="HostMin: "
+                        android:paddingBottom="8dp"/>
+
+                    <TextView
+                        android:id="@+id/vn_hostmax"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="HostMax: "
+                        android:paddingBottom="8dp"/>
+
+                    <TextView
+                        android:id="@+id/vn_broadcast"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Broadcast: "
+                        android:paddingBottom="8dp"/>
+
+                    <TextView
+                        android:id="@+id/vn_totalhost"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Total Hosts: "
+                        android:paddingBottom="8dp"/>
+
+                    <TextView
+                        android:id="@+id/vn_numberofhost"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="11sp"
+                        android:text="Number of Hosts: "
+                        android:paddingTop="2dp"
+                        android:paddingBottom="8dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/vn_netmask"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Netmask: "
+                        android:paddingBottom="8dp"/>
+
+                    <TextView
+                        android:id="@+id/vn_wildcast"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Wildcast: "
+                        android:paddingBottom="8dp"/>
+
+                    <TextView
+                        android:id="@+id/vn_binarynetmask"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Binary netmask: "
+                        android:paddingBottom="8dp"/>
+
+                    <TextView
+                        android:id="@+id/vn_class"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="IP Class: "
+                        android:paddingBottom="8dp"/>
+
+                    <TextView
+                        android:id="@+id/vn_cidrnotation"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="CIDR Notation: "
+                        android:paddingBottom="8dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/list_decimalIp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/ld_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ld_address"
+                    android:paddingBottom="8dp"/>
+
+                <TextView
+                    android:id="@+id/ld_network"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ld_network"
+                    android:paddingBottom="8dp"/>
+
+                <TextView
+                    android:id="@+id/ld_hostmin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ld_hostmin"
+                    android:paddingBottom="8dp"/>
+
+                <TextView
+                    android:id="@+id/ld_hostmax"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ld_hostmax"
+                    android:paddingBottom="8dp"/>
+
+                <TextView
+                    android:id="@+id/ld_broadcast"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ld_broadcast"
+                    android:paddingBottom="8dp"/>
+
+                <TextView
+                    android:id="@+id/ld_totalhost"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ld_totalhost"
+                    android:paddingBottom="8dp"
+                    android:paddingTop="1dp"/>
+
+                <TextView
+                    android:id="@+id/ld_numberofhosts"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ld_numberofhost"
+                    android:paddingBottom="6dp"/>
+
+                <TextView
+                    android:id="@+id/ld_netmask"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ld_netmask"
+                    android:paddingBottom="8dp"/>
+
+                <TextView
+                    android:id="@+id/ld_wildcast"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ld_wildcast" />
+
+                <TextView
+                    android:id="@+id/ld_binarynetmask"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="8dp"
+                    android:text="@string/ld_binarynetmask"
+                    android:textSize="10sp"
+
+                    android:paddingBottom="6dp"
+                    android:layout_marginTop="4dp"/>
+
+                <TextView
+                    android:id="@+id/ld_ipclass"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ld_ipclass"
+                    android:paddingBottom="8dp"
+                    android:paddingTop="5dp"/>
+
+                <TextView
+                    android:id="@+id/ld_cirdnotation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ld_cirdnotation"
+                    android:paddingBottom="8dp"/>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/list_AA"
+                android:layout_weight="1"
+                android:textSize="11dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Network Address"
+                android:paddingLeft="6dp"/>
+
+            <TextView
+                android:id="@+id/list_BB"
+                android:layout_weight="1"
+                android:textSize="11dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Usable Host Min"
+                android:padding="1dp"/>
+
+            <TextView
+                android:id="@+id/list_CC"
+                android:layout_weight="1"
+                android:textSize="11dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Usable Host Max"
+                android:padding="1dp"/>
+
+            <TextView
+                android:id="@+id/list_DD"
+                android:layout_weight="1"
+                android:textSize="11dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Broadcast Address"
+                android:padding="1dp"/>
+        </LinearLayout>
+
+
+    <ListView
+        android:id="@+id/hostlistsbb"
+        android:layout_width="match_parent"
+        android:layout_height="4775dp"
+        android:drawSelectorOnTop="true"
+        android:orientation="vertical"
+        android:scrollbars="vertical">
+    </ListView>
+
+</LinearLayout>
+
+    </ScrollView>

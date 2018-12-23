@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">SubnetCalculator</string>
+
+    <string name="hintbits">192.168.0.1</string>
+    <string name="hintmask">24</string>
+    <string name="hinta">No host give</string>
+    <string name="hintb">No netmask given</string>
+    <string name="ld_address">192.168.0.1</string>
+    <string name="ld_netmask">255.255.255.0</string>
+    <string name="ld_wildcast">0.0.0.255</string>
+    <string name="ld_network">192.168.0.0</string>
+    <string name="ld_broadcast">192.168.0.255</string>
+    <string name="ld_hostmin">192.168.0.1</string>
+    <string name="ld_hostmax">192.168.0.254</string>
+    <string name="ld_totalhost">256</string>
+    <string name="ld_numberofhost">254</string>
+    <string name="ld_binarynetmask">11111111.11111111.11111111.00000000</string>
+    <string name="ld_ipclass">C</string>
+    <string name="ld_cirdnotation">/24</string>
+
+    <string name="class_tablelists">Class     1st Octet Decimal Range   Default Subnet Mask</string>
+    <string name="class_a">A      1 - 126*     255.0.0.0</string>
+    <string name="class_b">B      128 - 191    255.255.0.0</string>
+    <string name="class_c">C      192 - 223    255.255.255.0</string>
+    <string name="class_d">D      224 - 239    Reserved for Multicasting</string>
+
+
+</resources>
