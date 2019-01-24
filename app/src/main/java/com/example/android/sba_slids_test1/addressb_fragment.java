@@ -61,13 +61,17 @@ public class addressb_fragment extends Fragment {
         final View rootView = inflater.inflate(R.layout.list_b, container, false);
         scrollView = rootView.findViewById(R.id.scrollable);
 
-        button = (Button) rootView.findViewById(R.id.buttonPanel);
+        listView2 = rootView.findViewById(R.id.hostlistsbb);
+
+        //listView2.se(rootView);
+
+        button = rootView.findViewById(R.id.buttonPanel);
         button.setOnClickListener(new View.OnClickListener() {
                        @Override
                        public void onClick(View v) {
 
-                       edit_one = (EditText) rootView.findViewById(R.id.li_addressa);
-                       edit_two = (EditText) rootView.findViewById(R.id.li_subbits);
+                       edit_one = rootView.findViewById(R.id.li_addressa);
+                       edit_two = rootView.findViewById(R.id.li_subbits);
 
                            ipinput = edit_one.getText().toString();
                            bitsinput = edit_two.getText().toString();
@@ -158,67 +162,91 @@ public class addressb_fragment extends Fragment {
 //                               totalHeight += listitem.getMeasuredHeight();
 //                           }
 
-                           listView2 = (ListView) rootView.findViewById(R.id.hostlistsbb);
+                           //setListViewHeightBasedOnChildren(listView2);
 
                            //ListView listView = rootView.findViewById(R.id.hostlistsbb);
 
-                               ViewGroup.LayoutParams params = listView2.getLayoutParams();
-                              // params.height = totalHeight + (listView2.getDividerHeight() * (listAdapter.getCount() - 1));
-                               listView2.setLayoutParams(params);
-                               listView2.requestLayout();
+//                               ViewGroup.LayoutParams params = listView2.getLayoutParams();
+//                              // params.height = totalHeight + (listView2.getDividerHeight() * (listAdapter.getCount() - 1));
+//                               listView2.setLayoutParams(params);
+//                               listView2.requestLayout();
 
 
                               //ListAdapter listAdapter  = listView2.getAdapter();
                               //Utility.setListViewHeightBasedOnChildren(listView2);
-
-
-
                            listView2.setAdapter(adapter);
+                           setListViewHeightBasedOnChildren(listView2);
+
+
                                       }
         });
 
         //Print the ip address.
-        ipaddressTextView = (TextView) rootView.findViewById(R.id.ld_address);
+        ipaddressTextView = rootView.findViewById(R.id.ld_address);
 
         //Print the network address
-        networkTextView = (TextView)rootView.findViewById(R.id.ld_network);
+        networkTextView = rootView.findViewById(R.id.ld_network);
 
         //Print the broadcast
-        broadcastTextView = (TextView)rootView.findViewById(R.id.ld_broadcast);
+        broadcastTextView = rootView.findViewById(R.id.ld_broadcast);
 
         //Print the Host min
-        hostminTextView = (TextView)rootView.findViewById(R.id.ld_hostmin);
+        hostminTextView = rootView.findViewById(R.id.ld_hostmin);
 
         //Print the Host max
-        hostmaxTextView = (TextView)rootView.findViewById(R.id.ld_hostmax);
+        hostmaxTextView = rootView.findViewById(R.id.ld_hostmax);
 
         //Print total hosts
-        totalhostTextView = (TextView)rootView.findViewById(R.id.ld_totalhost);
+        totalhostTextView = rootView.findViewById(R.id.ld_totalhost);
 
         //Print number of hosts
-        numberofhostsTextView = (TextView)rootView.findViewById(R.id.ld_numberofhosts);
+        numberofhostsTextView = rootView.findViewById(R.id.ld_numberofhosts);
 
         //Print netmask
-        netmaskTextView = (TextView)rootView.findViewById(R.id.ld_netmask);
+        netmaskTextView = rootView.findViewById(R.id.ld_netmask);
 
         //Print the wildcast address
-        wildcastTextView = (TextView)rootView.findViewById(R.id.ld_wildcast);
+        wildcastTextView = rootView.findViewById(R.id.ld_wildcast);
 
         //Print netmask in binary
-        binarynetmaskTextView = (TextView)rootView.findViewById(R.id.ld_binarynetmask);
+        binarynetmaskTextView = rootView.findViewById(R.id.ld_binarynetmask);
 
         //Print class
-        ipclassTextView = (TextView)rootView.findViewById(R.id.ld_ipclass);
+        ipclassTextView = rootView.findViewById(R.id.ld_ipclass);
 
         //CIDR Notation
-        cidrTextView = (TextView)rootView.findViewById(R.id.ld_cirdnotation);
+        cidrTextView = rootView.findViewById(R.id.ld_cirdnotation);
 
-        errorA = (TextView)rootView.findViewById(R.id.hint_A);
-        errorB = (TextView)rootView.findViewById(R.id.hint_B);
+        errorA = rootView.findViewById(R.id.hint_A);
+        errorB = rootView.findViewById(R.id.hint_B);
 
         return rootView;
 
 
+    }
+
+    /**** Method for Setting the Height of the ListView dynamically.
+     **** Hack to fix the issue of not showing all the items of the ListView
+     **** when placed inside a ScrollView  ****/
+    public static void setListViewHeightBasedOnChildren(ListView listView) {
+        ListAdapter listAdapter = listView.getAdapter();
+        if (listAdapter == null)
+            return;
+
+        int desiredWidth = View.MeasureSpec.makeMeasureSpec(listView.getWidth(), View.MeasureSpec.UNSPECIFIED);
+        int totalHeight = 0;
+        View view = null;
+        for (int i = 0; i < listAdapter.getCount(); i++) {
+            view = listAdapter.getView(i, view, listView);
+            if (i == 0)
+                view.setLayoutParams(new ViewGroup.LayoutParams(desiredWidth, ViewGroup.LayoutParams.WRAP_CONTENT));
+
+            view.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED);
+            totalHeight += view.getMeasuredHeight();
+        }
+        ViewGroup.LayoutParams params = listView.getLayoutParams();
+        params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
+        listView.setLayoutParams(params);
     }
 
     public void inputB() throws NullPointerException, IndexOutOfBoundsException{
